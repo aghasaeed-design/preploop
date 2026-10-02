@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PrepLoop: free SAT and IELTS practice tests with score estimates</title>
+<meta name="description" content="PrepLoop: free SAT and IELTS practice tests with score estimates, a personalised study plan and a student community. Practise, get feedback, repeat.">
+<meta property="og:title" content="PrepLoop: free SAT and IELTS practice">
+<meta property="og:description" content="Free SAT and IELTS practice with score estimates, study plans and a student community.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F7FA;--ink:#13202E;--mut:#5B6877;--card:#fff;--line:#D5DDE6;--blue:#2750E0;--hl:#FFD43B;--ok:#16794C;--bad:#B3261E}
+@media(prefers-color-scheme:dark){:root{--bg:#0F1720;--ink:#E8EEF5;--mut:#9AA8B8;--card:#16212E;--line:#2A3848;--blue:#8CA5FF;--ok:#4CC38A;--bad:#FF8A80}}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Literata,Georgia,serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3,nav,button,label,input,select,textarea,.b{font-family:'Bricolage Grotesque',system-ui,sans-serif}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:0 0 .5em;font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.6rem;margin:1.4em 0 .5em;font-weight:700}h3{margin:0 0 .3em;font-size:1.1rem}
+p{margin:.4em 0 1em;max-width:62ch}
+a{color:var(--blue)}
+.w{max-width:980px;margin:0 auto;padding:0 18px}
+header{border-bottom:2px solid var(--ink);background:var(--card);position:sticky;top:0;z-index:5}
+header .w{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.logo{font:800 1.3rem 'Bricolage Grotesque';text-decoration:none;color:var(--ink);background:linear-gradient(transparent 60%,var(--hl) 60%)}
+nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+nav a{padding:6px 10px;border-radius:6px;text-decoration:none;color:var(--ink);font-weight:500;font-size:.95rem}
+nav a.on,nav a:hover{background:var(--ink);color:var(--bg)}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:18px;margin:14px 0}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.hero{display:grid;gap:28px;grid-template-columns:1.1fr .9fr;align-items:center;padding:44px 0 20px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:24px}}
+button,.btn{font-weight:700;font-size:1rem;background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:11px 18px;cursor:pointer;text-decoration:none;display:inline-block}
+button.alt,.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+button:disabled{opacity:.4;cursor:default}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+input,select,textarea{font-size:1rem;padding:10px;border:1.5px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);width:100%;margin:4px 0 12px}
+label{font-weight:600;font-size:.92rem}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);padding:11px 14px;margin:8px 0;font:inherit;font-family:Literata,serif;font-weight:400}
+.opt i{flex:none;width:30px;height:30px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font:700 .85rem 'Bricolage Grotesque';font-style:normal}
+.opt.sel i{background:var(--ink);color:var(--bg)}
+.opt.ok{border-color:var(--ok)}.opt.ok i{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.no{border-color:var(--bad)}.opt.no i{background:var(--bad);border-color:var(--bad);color:#fff}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.sp{justify-content:space-between}
+.mut{color:var(--mut);font-size:.92rem}.tag{display:inline-block;background:var(--hl);color:#13202E;border-radius:4px;padding:1px 8px;font-size:.8rem;font-weight:700}
+.big{font:800 3rem/1 'Bricolage Grotesque'}
+table{width:100%;border-collapse:collapse;font-size:.95rem}td,th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
+.scroll{overflow-x:auto}
+.pass{border-left:4px solid var(--hl);padding-left:14px;margin:0 0 14px}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}.bar b{display:block;height:100%;background:var(--blue)}
+footer{border-top:2px solid var(--ink);margin-top:40px;padding:20px 0 40px;font-size:.85rem;color:var(--mut)}
+@media(prefers-reduced-motion:no-preference){.opt{transition:border-color .15s}}
+</style></head><body>
+<header><div class="w"><a class="logo" href="#/">PrepLoop</a>
+<nav id="nav"><a href="#/">Home</a><a href="#/tests">Tests</a><a href="#/plan">Study plan</a><a href="#/guides">Guides</a><a href="#/community">Community</a><a href="#/dashboard">Dashboard</a></nav></div></header>
+<main class="w" id="app"></main>
+<footer><div class="w">PrepLoop is not affiliated with or endorsed by the College Board or IELTS. SAT is a trademark of the College Board. IELTS is jointly owned by the British Council, IDP and Cambridge. All questions here are original practice items, and every score is an estimate, not an official score.
+<br><a href="#/guides">Privacy: progress is saved only in your own browser.</a></div></footer>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let S=null;try{S=JSON.parse(localStorage.getItem('pp'))}catch(e){}
+S=S||{name:'',hist:[],plan:null,posts:[{id:1,b:'Study tips',t:'How do you check algebra answers fast?',x:'I plug my answer back into the equation. It takes about ten seconds and catches most slips.',u:'Sana',v:3,c:['Same here, also underline what the question asks for.']},{id:2,b:'IELTS Writing help',t:'Task 2 intro: how long should it be?',x:'Two sentences: paraphrase the question, then state your position. Anything longer eats time.',u:'Imran',v:2,c:[]}]};
+const save=()=>{try{localStorage.setItem('pp',JSON.stringify(S))}catch(e){}};
+const L='ABCD';
+const P=`Urban beekeeping has grown quickly in many cities over the past decade. Supporters say rooftop hives help pollination in city parks and gardens. However, some ecologists warn that too many managed hives can compete with wild bees for flowers, especially where green space is limited. A recent survey of one city found that wild bee numbers were lower near areas with dense hive clusters, though researchers stressed that the link was not proven to be a direct cause.`;
+const TF=['True','False','Not Given'];
+const Q=[
+['sat','Algebra','If 3x + 7 = 25, what is the value of x?',['4','5','6','7'],2,'Subtract 7 to get 3x = 18, so x = 6.'],
+['sat','Functions','If f(x) = 2x² − 3x, what is f(3)?',['3','9','12','15'],1,'2(9) − 9 = 18 − 9 = 9.'],
+['sat','Geometry','A right triangle has legs of length 6 and 8. What is the length of its hypotenuse?',['9','10','12','14'],1,'√(36 + 64) = √100 = 10.'],
+['sat','Percentages','20% of a number is 14. What is the number?',['28','60','70','84'],2,'14 ÷ 0.20 = 70.'],
+['sat','Statistics','The mean of four numbers is 12. Three of them are 10, 12 and 14. What is the fourth?',['10','12','14','16'],1,'Total = 48. The three known sum to 36, so the fourth is 12.'],
+['sat','Grammar','The committee ___ its decision yesterday.',['announce','announced','announcing','have announced'],1,'"Yesterday" needs the simple past: announced.'],
+['sat','Vocabulary','"The scientist\'s explanation was so lucid that beginners could follow it." Lucid most nearly means:',['confusing','clear','lengthy','technical'],1,'Beginners could follow it, so it was clear.'],
+['sat','Transitions','The experiment failed twice. ___, the team kept going.',['Therefore','However','Similarly','For example'],1,'The second sentence contrasts with the first, so "However".'],
+['sat','Grammar','The dog wagged ___ tail.',['it\'s','its','its\'','their'],1,'"Its" shows possession; "it\'s" means "it is".'],
+['ielts','True/False/Not Given','Urban beekeeping has grown in many cities.',TF,0,'The passage says it has grown quickly, so True.'],
+['ielts','True/False/Not Given','Rooftop hives are banned in most cities.',TF,2,'Bans are never mentioned: Not Given.'],
+['ielts','True/False/Not Given','The survey proved that hives caused wild bee decline.',TF,1,'Researchers said the link was not proven, which contradicts the statement: False.'],
+['ielts','Multiple choice','What is the main concern of some ecologists?',['Hives produce too little honey','Hives compete with wild bees for flowers','Cities have too many gardens','Pollination harms parks'],1,'The passage says managed hives can compete with wild bees for flowers.'],
+['ielts','Multiple choice','Wild bees are most at risk where:',['there are many parks','green space is limited','hives are rooftop only','honey is sold'],1,'The passage names limited green space.']];
+const G=[['SAT Math: plug in answers','When a question has numbers in the choices, test them in the equation. Start with a middle value to cut options quickly. Always re-read what the question asks for: x, 2x or x + 1.'],
+['SAT Reading and Writing: read the question first','Know what you are hunting for before you read the passage. For grammar items, read the whole sentence, then decide on the rule being tested.'],
+['IELTS True/False/Not Given','True means the text agrees. False means the text says the opposite. Not Given means the text does not address it. Do not use outside knowledge.'],
+['IELTS Writing Task 2 structure','Intro (paraphrase and position), two body paragraphs (one idea each, with an example), short conclusion. Aim for 250+ words in about 40 minutes.'],
+['IELTS Speaking Part 2','Use the minute of prep to note four points: what, when, who, why it matters. Speak for the full two minutes and add a feeling or a result at the end.'],
+['A 10-minute daily vocabulary routine','Learn five words, write one sentence for each, and review yesterday\'s five. Words you can use in a sentence stay with you.']];
+const topics=ex=>[...new Set(Q.filter(q=>q[0]==ex).map(q=>q[1]))];
+const est=(ex,p)=>ex=='sat'?400+Math.round(p*120)*10:Math.min(9,Math.round((3+6*p)*2)/2);
+const estTxt=(ex,e)=>ex=='sat'?e+' / 1600':'Band '+e;
+let T=null,iv=null;
+function home(){$('#app').innerHTML=`<section class="hero"><div><h1>Know your score before test day.</h1><p>Take a free SAT or IELTS diagnostic, get an estimated score, and follow a plan built from your weak topics. Then practise with other students.</p><div class="row"><a class="btn" href="#/tests">Start free diagnostic</a><a class="btn alt" href="#/community">Visit community</a></div></div>
+<div class="card"><span class="tag">Try one now</span><h3 style="margin-top:10px">If 3x + 7 = 25, what is x?</h3><div id="hq">${[4,5,6,7].map((v,j)=>`<button class="opt" onclick="hb(${j})"><i>${L[j]}</i>${v}</button>`).join('')}</div><p class="mut" id="hf">Fill in a bubble, like the real answer sheet.</p></div></section>
+<h2>How it works</h2><div class="grid"><div class="card"><h3>1. Diagnostic</h3>Answer a timed set and get an estimated score with a topic breakdown.</div><div class="card"><h3>2. Plan</h3>Enter your target and exam date. You get a day-by-day plan.</div><div class="card"><h3>3. Practise and share</h3>Drill topics with instant explanations, then ask questions or get feedback in the community.</div></div>`}
+function hb(j){document.querySelectorAll('#hq .opt').forEach((b,k)=>{b.classList.toggle('ok',k==2);b.classList.toggle('no',k==j&&j!=2)});$('#hf').textContent=j==2?'Correct. 3x = 18, so x = 6.':'Not quite. Subtract 7 first: 3x = 18.'}
+function tests(){const sec=(ex,n)=>`<div class="card"><h3>${n}</h3><p class="mut">${Q.filter(q=>q[0]==ex).length} questions. The diagnostic is timed (20 minutes).</p><button onclick="start('${ex}','diag')">Take diagnostic</button><h3 style="margin-top:18px">Practise by topic</h3><div class="row">${topics(ex).map(t=>`<button class="alt" onclick="start('${ex}','prac','${t}')">${t}</button>`).join('')}</div></div>`;
+$('#app').innerHTML=`<h2>Choose your exam</h2><div class="grid">${sec('sat','SAT')}${sec('ielts','IELTS Academic reading')}</div><div class="card"><h3>IELTS Writing Task 2</h3><p class="mut">Write 250+ words, then post it in the community for peer feedback.</p><textarea id="es" rows="7" oninput="$('#wc').textContent=this.value.trim().split(/\\s+/).filter(Boolean).length" placeholder="Some people think students should wear school uniforms. Discuss both views and give your opinion."></textarea><div class="row sp"><span class="mut"><b id="wc">0</b> words</span><button onclick="shareEssay()">Post for feedback</button></div></div>`}
+function shareEssay(){const x=$('#es').value.trim();if(x.length<50)return alert('Write at least a short paragraph first.');S.posts.unshift({id:Date.now(),b:'IELTS Writing help',t:'Please review my Task 2 essay',x,u:S.name||'Student',v:0,c:[]});save();location.hash='#/community'}
+function start(ex,mode,topic){const qs=Q.filter(q=>q[0]==ex&&(!topic||q[1]==topic));T={ex,mode,topic,qs,i:0,a:[],end:mode=='diag'?Date.now()+1200000:0,res:null};clearInterval(iv);if(T.end)iv=setInterval(tick,1000);location.hash='#/test';if(location.hash=='#/test')runTest()}
+function tick(){const s=Math.max(0,Math.round((T.end-Date.now())/1000)),e=$('#tm');if(e)e.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');if(!s)finish()}
+function runTest(){if(!T||T.res)return tests();const q=T.qs[T.i],a=T.a[T.i],prac=T.mode=='prac',lock=prac&&a!=null;
+$('#app').innerHTML=`<div class="row sp" style="margin-top:20px"><span class="tag">${T.ex.toUpperCase()} · ${q[1]}</span><span class="b">Question ${T.i+1} of ${T.qs.length}${T.end?` · <span id="tm"></span>`:''}</span></div><div class="bar" style="margin:10px 0"><b style="width:${(T.i+1)/T.qs.length*100}%"></b></div>
+<div class="card">${T.ex=='ielts'?`<div class="pass">${P}</div>`:''}<h3>${esc(q[2])}</h3>${q[3].map((o,j)=>`<button class="opt ${lock?(j==q[4]?'ok':j==a?'no':''):(a==j?'sel':'')}" onclick="pick(${j})"><i>${L[j]}</i>${esc(o)}</button>`).join('')}${lock?`<p><b>${a==q[4]?'Correct.':'Not quite.'}</b> ${esc(q[5])}</p>`:''}</div>
+<div class="row sp"><button class="alt" onclick="go(-1)" ${T.i?'':'disabled'}>Back</button>${T.i<T.qs.length-1?`<button onclick="go(1)">Next</button>`:`<button onclick="if(confirm('Submit your answers?'))finish()">Finish</button>`}</div>`;if(T.end)tick()}
+function pick(j){if(T.mode=='prac'&&T.a[T.i]!=null)return;T.a[T.i]=j;runTest()}
+function go(d){T.i+=d;runTest()}
+function finish(){if(!T||T.res)return;clearInterval(iv);const tp={};let c=0;T.qs.forEach((q,k)=>{const ok=T.a[k]==q[4];c+=ok;tp[q[1]]=tp[q[1]]||[0,0];tp[q[1]][0]+=ok;tp[q[1]][1]++});const p=c/T.qs.length,r={d:Date.now(),ex:T.ex,mode:T.mode,n:T.qs.length,c,e:est(T.ex,p),tp};S.hist.push(r);save();T.res=r;location.hash='#/result';if(location.hash=='#/result')result()}
+function result(){if(!T||!T.res){return location.hash='#/dashboard'}const r=T.res;
+$('#app').innerHTML=`<h2>Your result</h2><div class="card row sp"><div><div class="big">${estTxt(r.ex,r.e)}</div><span class="mut">Estimated score, not official</span></div><div><div class="big">${r.c}/${r.n}</div><span class="mut">Correct</span></div></div>
+<div class="card"><h3>By topic</h3>${Object.entries(r.tp).map(([t,v])=>`<p style="margin:.3em 0">${t}: ${v[0]}/${v[1]}</p><div class="bar"><b style="width:${v[0]/v[1]*100}%"></b></div>`).join('')}</div>
+<div class="row"><a class="btn" href="#/plan">Build my study plan</a><button class="alt" onclick="shareScore()">Copy share text</button></div>
+<h2>Review</h2>${T.qs.map((q,k)=>{const a=T.a[k];return `<div class="card"><b class="b">${k+1}. ${esc(q[2])}</b><p class="mut" style="margin:.4em 0">Your answer: ${a==null?'skipped':esc(q[3][a])} · Correct: ${esc(q[3][q[4]])}</p><p style="margin:0">${esc(q[5])}</p></div>`}).join('')}`}
+function shareScore(){const r=T.res,t=`I scored an estimated ${estTxt(r.ex,r.e)} on a PrepLoop practice test.`;navigator.clipboard&&navigator.clipboard.writeText(t+' '+location.origin);alert(t)}
+function plan(){const p=S.plan||{};$('#app').innerHTML=`<h2>Study plan</h2><div class="card"><div class="grid"><div><label>Exam</label><select id="pe"><option value="sat">SAT</option><option value="ielts">IELTS</option></select></div><div><label>Target score (SAT 400-1600, IELTS 4-9)</label><input id="pt" type="number" value="${p.t||''}"></div><div><label>Exam date</label><input id="pd" type="date" value="${p.d||''}"></div></div><button onclick="mkPlan()">Create plan</button></div><div id="pl"></div>`;if(p.ex){$('#pe').value=p.ex;mkPlan(1)}}
+function mkPlan(q){const ex=$('#pe').value,t=$('#pt').value,d=$('#pd').value;if(!t||!d)return q||alert('Enter a target score and an exam date.');S.plan={ex,t,d};save();const last=[...S.hist].reverse().find(h=>h.ex==ex),tp=topics(ex);const w=last?[...tp].sort((a,b)=>{const f=k=>last.tp[k]?last.tp[k][0]/last.tp[k][1]:0;return f(a)-f(b)}):tp;const days=Math.max(1,Math.min(14,Math.ceil((new Date(d)-Date.now())/864e5)));
+let h=`<p class="mut">${last?'Ordered from your weakest topics first.':'Take a diagnostic to personalise the topic order.'} Target: ${t}. Showing ${days} day${days>1?'s':''}.</p>`;
+for(let i=0;i<days;i++){const tt=w[i%w.length],k=i%4;h+=`<div class="card" style="margin:8px 0"><b class="b">Day ${i+1}</b> <span class="mut">${k==3?'Timed mixed practice (diagnostic) and review every wrong answer':k==2?'10 minutes vocabulary and read one guide':'30 minutes on '+tt+', then check explanations'}</span> <button class="alt" style="padding:4px 10px;float:right" onclick="${k==3?`start('${ex}','diag')`:`start('${ex}','prac','${tt}')`}">Start</button></div>`}
+$('#pl').innerHTML=h}
+function guides(){$('#app').innerHTML=`<h2>Study guides</h2><input id="gs" placeholder="Search guides" oninput="gl()"><div id="gl"></div>`;gl()}
+function gl(){const s=($('#gs').value||'').toLowerCase();$('#gl').innerHTML=G.filter(g=>(g[0]+g[1]).toLowerCase().includes(s)).map(g=>`<div class="card"><h3>${g[0]}</h3>${g[1]}</div>`).join('')||'<p class="mut">No guides match. Try another word.</p>'}
+let cb='All';
+function community(){const B=['All','SAT Math doubts','IELTS Writing help','Study tips','Exam experiences'];$('#app').innerHTML=`<h2>Community</h2><p class="mut">Posts are saved in this browser only. To share posts between students, connect a backend such as Firebase (see README).</p>
+<div class="row">${B.map(b=>`<button class="${b==cb?'':'alt'}" onclick="cb='${b}';community()">${b}</button>`).join('')}</div>
+<div class="card"><label>Board</label><select id="nb">${B.slice(1).map(b=>`<option>${b}</option>`).join('')}</select><label>Title</label><input id="nt" maxlength="120"><label>Your question or post</label><textarea id="nx" rows="3"></textarea><button onclick="addPost()">Post</button></div>
+${S.posts.filter(p=>cb=='All'||p.b==cb).map(p=>`<div class="card"><span class="tag">${esc(p.b)}</span><h3 style="margin-top:8px">${esc(p.t)}</h3><p style="white-space:pre-wrap;margin:.3em 0 .6em">${esc(p.x)}</p><div class="row mut"><span>by ${esc(p.u)}</span><button class="alt" style="padding:3px 10px" onclick="vote(${p.id})">▲ ${p.v}</button><button class="alt" style="padding:3px 10px" onclick="del(${p.id})">Delete</button></div>${p.c.map(c=>`<p class="mut" style="border-left:3px solid var(--line);padding-left:10px;margin:.5em 0">${esc(c)}</p>`).join('')}<div class="row"><input id="c${p.id}" placeholder="Write a reply" style="flex:1;margin:0"><button onclick="reply(${p.id})">Reply</button></div></div>`).join('')||'<p class="mut">No posts on this board yet. Start the first one.</p>'}`}
+const bad=/\b(idiot|stupid|fuck|shit)\b/i;
+function addPost(){const t=$('#nt').value.trim(),x=$('#nx').value.trim();if(!t||!x)return alert('Add a title and some text.');if(bad.test(t+x))return alert('Please keep posts respectful.');S.posts.unshift({id:Date.now(),b:$('#nb').value,t,x,u:S.name||'Student',v:0,c:[]});save();community()}
+function vote(i){S.posts.find(p=>p.id==i).v++;save();community()}
+function del(i){if(confirm('Delete this post?')){S.posts=S.posts.filter(p=>p.id!=i);save();community()}}
+function reply(i){const v=$('#c'+i).value.trim();if(!v)return;if(bad.test(v))return alert('Please keep replies respectful.');S.posts.find(p=>p.id==i).c.push(v);save();community()}
+function streak(){const ds=new Set(S.hist.map(h=>new Date(h.d).toDateString()));let n=0,d=new Date();if(!ds.has(d.toDateString()))d.setDate(d.getDate()-1);while(ds.has(d.toDateString())){n++;d.setDate(d.getDate()-1)}return n}
+function dashboard(){const h=S.hist,st=streak(),qn=h.reduce((a,x)=>a+x.n,0),ex=new Set(h.map(x=>x.ex));
+const bd=[['First test',h.length>0],['7-day streak',st>=7],['50 questions',qn>=50],['Tried both exams',ex.size>1]];
+const best=ex=>{const l=h.filter(x=>x.ex==ex);return l.length?estTxt(ex,Math.max(...l.map(x=>x.e))):'none yet'};
+$('#app').innerHTML=`<h2>Dashboard</h2><div class="card"><label>Your nickname (shown on posts)</label><input id="nn" value="${esc(S.name)}" maxlength="20" onchange="S.name=this.value.trim();save()"></div>
+<div class="grid"><div class="card"><div class="big">${h.length}</div>tests taken</div><div class="card"><div class="big">${st}</div>day streak</div><div class="card"><div class="big">${qn}</div>questions answered</div></div>
+<div class="card"><h3>Personal bests</h3><p style="margin:0">SAT: ${best('sat')}<br>IELTS: ${best('ielts')}</p></div>
+<div class="card"><h3>Badges</h3><div class="row">${bd.map(b=>`<span class="tag" style="opacity:${b[1]?1:.35}">${b[0]}</span>`).join('')}</div></div>
+<h2>History</h2><div class="card scroll">${h.length?`<table><tr><th>Date</th><th>Exam</th><th>Mode</th><th>Score</th><th>Estimate</th></tr>${[...h].reverse().map(x=>`<tr><td>${new Date(x.d).toLocaleDateString()}</td><td>${x.ex.toUpperCase()}</td><td>${x.mode=='diag'?'Diagnostic':'Practice'}</td><td>${x.c}/${x.n}</td><td>${estTxt(x.ex,x.e)}</td></tr>`).join('')}</table>`:'<p>Nothing here yet. <a href="#/tests">Take your first test.</a></p>'}</div>`}
+const R={'':home,tests,plan,guides,community,dashboard,test:runTest,result};
+function route(){const h=location.hash.replace(/^#\/?/,'');(R[h]||home)();document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#/'+h));scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+</script></body></html>
